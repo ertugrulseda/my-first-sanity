@@ -1,6 +1,6 @@
 export default {
     name: 'actors',
-    title: 'actors',
+    title: 'Actors',
     type: 'document',
     fields: [
         {

@@ -1,6 +1,6 @@
 export default {
     name: 'movie',
-    title: 'movie',
+    title: 'Movie',
     type: 'document',
     fields: [
         {
@@ -43,11 +43,29 @@ export default {
                     fields: [
                         {
                             name: 'actors',
-                            title: 'actors',
+                            title: 'Actors',
                             type: 'reference',
                             to: [{ type: 'actors' }]
                         }
-                    ]
+                    ],
+                    preview: {
+                        select: {
+                            title: "actors.name",
+                            subtitle: "actors.surname",
+                            media: "actors.photo"
+                        }
+                    },
+                    prepare: ({
+                        title,
+                        subtitle,
+                        media
+                    }) => {
+                        return {
+                            title: title,
+                            subtitle: subtitle,
+                            media: media
+                        }
+                    }
                 }
             ]
         }
